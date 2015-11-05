@@ -8,6 +8,7 @@ h1 Welcome
 -if current_user
   p Hi #{current_user.first_name}!
   =link_to "Profile", "/users/#{current_user.id}"
+  p
   -if current_user.admin
     =link_to "Create an event", new_event_path
 

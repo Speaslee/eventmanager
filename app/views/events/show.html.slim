@@ -18,7 +18,7 @@ p
 p
 h4 #{@event.description}
 p
-h4 Price: #{@event.price_in_cents}
+h4 Price: $#{((@event.price_in_cents.to_i)/100).to_s}
 h4 Get a ticket!
 /=render "form3", :t=> @event
 

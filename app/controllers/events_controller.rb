@@ -48,7 +48,7 @@ def update
   Event.find(params[:id]).update(
   event_name: params[:event][:event_name],
   owner_id: current_user.id,
-  price_in_cents: params[:event][:price_in_cents],
+  price_in_cents: (params[:event][:price_in_cents].to_i * 100).to_s ,
   start_time: params[:event][:start_time],
   end_time: params[:event][:start_time]
   )
