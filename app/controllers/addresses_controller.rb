@@ -12,6 +12,7 @@ def create
   state: params[:address][:state],
   addressebable_type: params[:address][:addressebable_type],
   )
+  redirect_to "/"
 end
 
 end

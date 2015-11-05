@@ -1,0 +1,12 @@
+=form_for t.addresses.new do |address_fields|
+  h4 Street Address:
+  =address_fields.text_area :street, class: "form-control", rows: 1
+  h4 State:
+  =address_fields.select :state, options_for_select(us_states),{}, class: "form-control"
+  h4 City:
+  =address_fields.text_area :city, class: "form-control", rows: 1
+  h4 Zip:
+  =address_fields.text_area :zip, class: "form-control", rows: 1
+  =address_fields.hidden_field :addressebable_id, value: User.find(t.id).id
+  =address_fields.hidden_field :addressebable_type, value: 'User'
+  button.btn.btn-default Save
