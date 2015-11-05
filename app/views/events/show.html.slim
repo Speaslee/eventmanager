@@ -20,11 +20,11 @@ h4 #{@event.description}
 p
 h4 Price: $#{((@event.price_in_cents.to_i)/100).to_s}
 h4 Get a ticket!
-/=render "form3", :t=> @event
+  
 
 p
 h3 Attendees (#{@event.tickets.count} currently attending)
 -if @event.tickets.any?
   ul
-  -@event.tickets.each do |m|
-    li #{m.user_id}
+  -@event.users.each do |m|
+    li #{m.first_name} #{m.last_name}
