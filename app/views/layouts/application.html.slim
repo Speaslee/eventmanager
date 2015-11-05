@@ -30,9 +30,10 @@ html lang="en"
           a.navbar-brand href="/"Eventmanagerthing
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "Search", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
+              = form_tag do
+                = text_field_tag :q
+                button.btn.btn-default Search
+              end
 
     .container
       .row

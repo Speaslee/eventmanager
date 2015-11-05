@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :events
   resources :addresses
   resources :tickets
-  #get "/users/paths/"
+  get :search, controller: "events", action: "search"
   root to: 'events#index'
 end

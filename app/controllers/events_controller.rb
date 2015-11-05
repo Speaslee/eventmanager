@@ -21,7 +21,6 @@ def show
 end
 
 def create
-  binding.pry
   e = Event.create(
   event_name: params[:event][:event_name],
   owner_id: current_user.id,
@@ -56,4 +55,8 @@ def update
   redirect_to "/", notice: "Event changed"
 end
 
+
+def search
+  @results = Event.search_all params[:q]
+end
 end
