@@ -1,0 +1,30 @@
+h1 <u> #{@event.event_name}</u>
+p
+h3 #{@event.start_time} - #{@event.end_time}
+-if current_user.id == @event.owner_id
+  =link_to "Edit event", edit_event_path
+p
+-if current_user.id == @event.owner_id
+  button.btn.btn-show_add_address Add Address
+  =render "form", :t=> @event
+p
+-if @event.addresses.any?
+  ul
+  -@event.addresses.each do |a|
+    li #{a.street} #{a.city}, #{a.state} #{a.zip}
+    /-if current_user.id == @event.owner_id
+      button.btn.btn-show_edit_address Edit Address
+      =render "form2", :t=> @event
+p
+h4 #{@event.description}
+p
+h4 Price: #{@event.price_in_cents}
+h4 Get a ticket!
+=render "form3", :t=> @event
+
+p
+h3 Attendees (#{@event.tickets.count} currently attending)
+-if @event.tickets.any?
+  ul
+  -@event.tickets.each do |m|
+    li #{m.user_id}

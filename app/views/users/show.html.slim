@@ -1,0 +1,7 @@
+h1= @user.name
+
+-if @user.addresses.any?
+  ul
+  -@user.addresses.each do |a|
+    li #{a.street}, #{a.city} #{a.state} #{a.zip}
+-link_to "Add an address", new_address_path

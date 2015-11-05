@@ -1,0 +1,27 @@
+h1 Add an event
+
+=form_for @event do |f|
+  h4 Event Name:
+  = f.text_area :event_name, class: "form-control", rows: 1
+  = f.hidden_field :owner_id, value: current_user.id
+  h4 Ticket Price:
+  = f.text_area :price_in_cents, class: "form-control", rows: 1
+  h4 Start Date:
+  = f.datetime_select :start_time
+  h4 End Date:
+  = f.datetime_select :end_time
+
+  =fields_for @event.addresses.new do |address_fields|
+    h4 Street Address:
+    =address_fields.text_area :street, class: "form-control", rows: 1
+    h4 State:
+    =address_fields.select :state, options_for_select(us_states),{}, class: "form-control"
+    h4 City:
+    =address_fields.text_area :city, class: "form-control", rows: 1
+    h4 Zip:
+    =address_fields.text_area :zip, class: "form-control", rows: 1
+    =address_fields.hidden_field :addressebable_id, value: @event.id
+    =address_fields.hidden_field :addressebable_type, value: 'event'
+  h4 Description:
+  = f.text_area :description, class: "form-control", rows: 10
+  button.btn.btn-submit Post

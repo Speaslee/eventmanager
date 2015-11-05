@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me) }
    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password) }
  end
+helper_method :random_image
+ def random_image
+   image_files = %w(.jpg .gif .png)
+   files = Dir.entries(
+   Rails.root.join "public/images/"
+   )
+   files[rand(files.length)]
+ end
 end

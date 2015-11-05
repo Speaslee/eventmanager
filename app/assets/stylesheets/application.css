@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .new_address {
+   display: none;
+ }
+ .edit_address {
+   display: none;
+ }

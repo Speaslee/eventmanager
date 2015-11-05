@@ -15,3 +15,16 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+$(document).on("ready", function() {
+  $(".btn-show_add_address").on("click", function() {
+    console.log(this);
+    $(this).siblings(".new_address").toggle('show');
+  })
+})
+
+$(document).on("ready", function() {
+  $(".btn-show_edit_address").on("click", function() {
+    console.log(this);
+    $(this).siblings(".edit_address").toggle('show');
+  })
+})

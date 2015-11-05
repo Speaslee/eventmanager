@@ -1,0 +1,13 @@
+h1 Editing #{@event.event_name}
+
+= form_for @event do |f|
+  =f.text_area :event_name, class: "form_control", rows: 1
+  h4 Ticket Price:
+  = f.text_area :price_in_cents, class: "form-control", rows: 1
+  h4 Start Date:
+  = f.datetime_select :start_time
+  h4 End Date:
+  = f.datetime_select :end_time
+  h4 Description:
+  = f.text_area :description, class: "form-control", rows: 10
+  button.btn.btn-primary Save
